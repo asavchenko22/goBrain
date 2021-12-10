@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 )
 
@@ -19,9 +20,12 @@ func main() {
 	fmt.Println("________the second part of assignment________")
 	fmt.Println()
 
-	EuropeanVelocity := 120.4 * 3.6
-	AmericanVelocity := 130 * 0.44704
+	type EuropeanVelocity float64
+	type AmericanVelocity float64
 
-	fmt.Println(fmt.Sprint(EuropeanVelocity) + " km/hour")
-	fmt.Println(fmt.Sprint(AmericanVelocity) + " miles/hour")
+	var ev EuropeanVelocity = 120.4 * 3.6
+	var av AmericanVelocity = 130 * 2.2369362920544
+
+	fmt.Println(ev, " km/hour")
+	fmt.Println(math.Round(float64(av*100))/100, " miles/hour")
 }
