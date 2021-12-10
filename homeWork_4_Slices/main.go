@@ -5,11 +5,19 @@ import "fmt"
 func main() {
 
 	week := []string{"sun", "mon", "tue", "wed", "thu", "fri", "sat"}
-	fmt.Println(week)
+	fmt.Printf("week: %v\n", week)
 
-	workDays := week[1:6]
-	fmt.Println(workDays)
+	workDays := make([]string, 5)
+	copy(workDays, week[1:6])
+	fmt.Printf("workDays: %v\n", workDays)
 
-	// weekEnd := append(week[0:1])
-	// weekEnd2 := append(week[6:7])
+	week = append(week[:1], week[6:]...)
+	fmt.Printf("week: %v\n", week)
+
+	combinedWeek := append(week[0:1:1], workDays...)
+	combinedWeek = append(combinedWeek, week[1:]...)
+
+	fmt.Printf("combinedWeek: %v\n", combinedWeek)
+	fmt.Printf("week: %v\n ", week)
+	fmt.Printf("workDays: %v\n ", workDays)
 }
