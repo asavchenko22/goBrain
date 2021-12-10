@@ -14,8 +14,13 @@ func main() {
 	week = append(week[:1], week[6:]...)
 	fmt.Printf("week: %v\n", week)
 
-	combinedWeek := append(week[0:1:1], workDays...)
+	combinedWeek := make([]string, 0)
+	combinedWeek = append(combinedWeek, week[:1]...)
+	combinedWeek = append(combinedWeek, workDays...)
 	combinedWeek = append(combinedWeek, week[1:]...)
+
+	// combinedWeek := append(week[0:1:1], workDays...)
+	// combinedWeek = append(combinedWeek, week[1:]...)
 
 	fmt.Printf("combinedWeek: %v\n", combinedWeek)
 	fmt.Printf("week: %v\n ", week)
